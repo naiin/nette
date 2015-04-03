@@ -1,0 +1,29 @@
+{block content}
+
+<h1 n:block="title">My Gallery</h1>
+
+<p><a n:href="add">Add new gallery</a></p>
+
+
+									<ul class="list-inline gallery-items" id="Grid">
+
+									{foreach $albums as $album}
+										<li  class="mix dogs " data-name="puffy">
+											<div class="panel panel-archon panel-gallery ">
+												<div class="panel-body">
+													<img height="150" src="{$basePath}/uploads/{$album->img_link}" alt="">
+												</div>
+												<div class="panel-footer">
+													{$album->name}
+												</div>
+												<div class="panel-footer">
+                                                	<a class="btn btn-primary pull-left" style="margin-top: -18px;" n:href="edit, $album->id">Edit</a>
+                                                     	<a class="btn btn-danger pull-right" style="margin-top: -20px;" n:href="delete, $album->id">Delete</a>
+                                                </div>
+											</div>
+										</li>
+
+										{/foreach}
+
+
+									</ul>
